@@ -1,0 +1,19 @@
+# For the RAG Pipeline
+langchain
+langchain-community
+langchain-core
+langchain-openai
+faiss-cpu
+sentence-transformers
+huggingface-hub
+python-dotenv
+
+# For the FastAPI Backend (if you combine them)
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic[email]
+python-jose[cryptography]
+passlib[bcrypt]
+
