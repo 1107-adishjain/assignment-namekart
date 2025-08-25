@@ -1,0 +1,1 @@
+The primary mitigation for a lost update race condition is optimistic locking using a version column.

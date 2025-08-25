@@ -1,4 +1,9 @@
 import os
+from dotenv import load_dotenv # Load env variables
+
+# Load environment variables from .env file
+load_dotenv()
+
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_text_splitters import CharacterTextSplitter
@@ -41,7 +46,9 @@ Question:
 prompt = ChatPromptTemplate.from_template(template)
 
 # 6. LLM
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key="YOUR_API_KEY")
+# Pull the API key from environment variables, do NOT hardcode it
+openai_api_key = os.getenv("OPENAI_API_KEY")
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key)
 
 # The RAG Chain
 rag_chain = (
